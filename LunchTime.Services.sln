@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchTime.Services", "LunchTime.Services\LunchTime.Services.csproj", "{81EBFF47-6CC4-432C-A909-DA071D1738F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81EBFF47-6CC4-432C-A909-DA071D1738F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81EBFF47-6CC4-432C-A909-DA071D1738F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81EBFF47-6CC4-432C-A909-DA071D1738F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81EBFF47-6CC4-432C-A909-DA071D1738F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62DB342D-A0A7-4EDE-AC7D-F9EFD7204E8A}
+	EndGlobalSection
+EndGlobal
