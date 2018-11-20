@@ -1,0 +1,22 @@
+﻿@model IEnumerable<RestaurantMenuModel>
+
+@{
+    ViewData["Title"] = "Restaurant Menus";
+}
+
+<h2>Restaurant Menus</h2>
+
+<table class="table">
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantName)
+        </td>
+        <td>
+            @Html.Raw(item.HtmlMenu)
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

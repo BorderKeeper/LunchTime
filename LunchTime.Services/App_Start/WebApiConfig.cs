@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Castle.MicroKernel.SubSystems.Configuration;
+using Castle.Windsor;
+using LunchTime.Services.Installer;
 
 namespace LunchTime.Services
 {
@@ -9,6 +9,12 @@ namespace LunchTime.Services
     {
         public static void Register(HttpConfiguration config)
         {
+            //IoC Installers
+            var container = new WindsorContainer();
+            var store = new DefaultConfigurationStore();
+            new ServiceInstaller().Install(container, store);
+            config.DependencyResolver = new DependencyResolver(container);
+
             // Web API configuration and services
 
             // Web API routes
