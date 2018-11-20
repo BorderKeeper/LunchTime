@@ -228,10 +228,6 @@
       <Project>{4127598c-f98c-46eb-b399-dca535147fa2}</Project>
       <Name>LunchTime.Scraper.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LunchTime.WebScraper\LunchTime.Scraper.csproj">
-      <Project>{b88ab9dc-79ca-4871-87c6-ae23bd953b6d}</Project>
-      <Name>LunchTime.Scraper</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

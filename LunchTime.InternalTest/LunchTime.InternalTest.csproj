@@ -82,10 +82,6 @@
       <Project>{4127598C-F98C-46EB-B399-DCA535147FA2}</Project>
       <Name>LunchTime.Scraper.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LunchTime.WebScraper\LunchTime.Scraper.csproj">
-      <Project>{b88ab9dc-79ca-4871-87c6-ae23bd953b6d}</Project>
-      <Name>LunchTime.Scraper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

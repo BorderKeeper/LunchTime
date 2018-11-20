@@ -89,10 +89,6 @@
       <Project>{4127598C-F98C-46EB-B399-DCA535147FA2}</Project>
       <Name>LunchTime.Scraper.Api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LunchTime.WebScraper\LunchTime.Scraper.csproj">
-      <Project>{B88AB9DC-79CA-4871-87C6-AE23BD953B6D}</Project>
-      <Name>LunchTime.Scraper</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
