@@ -19,6 +19,14 @@ namespace LunchTime.Database.LunchTime
         public ScrapeTargetType TargetType { get; set; }
 
         public ScrapeResultType ResultType { get; set; }
+
+        public bool RequiresRecaching(LearnedRestaurant newRestaurant)
+        {
+            return !newRestaurant.Uri.Equals(Uri) ||
+                !newRestaurant.XPath.Equals(XPath) ||
+                !newRestaurant.TargetType.Equals(TargetType) ||
+                !newRestaurant.ResultType.Equals(ResultType);
+        }
     }
 
     public class LearnedRestaurantContext : DbContext

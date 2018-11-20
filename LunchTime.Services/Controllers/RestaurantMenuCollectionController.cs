@@ -4,6 +4,7 @@ using System.Web.Http;
 using LunchTime.Core.Api.Common.Queries;
 using LunchTime.Main.Api.Retriever;
 using LunchTime.Main.Api.Retriever.Entities;
+using LunchTime.Main.Api.Retriever.QueryHandlers;
 
 namespace LunchTime.Services.Controllers
 {

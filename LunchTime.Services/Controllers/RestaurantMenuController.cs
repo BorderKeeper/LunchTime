@@ -4,22 +4,23 @@ using System.Web.Http;
 using LunchTime.Main.Api.Retriever;
 using LunchTime.Main.Api.Retriever.Entities;
 using LunchTime.Main.Api.Retriever.Queries;
+using LunchTime.Main.Api.Retriever.QueryHandlers;
 
 namespace LunchTime.Services.Controllers
 {
     public class RestaurantMenuController : ApiController
     {
-        private readonly IRestaurantMenuQueryHandler _restaurantMenuQueryHandler;
+        private readonly ICachedRestaurantMenuQueryHandler _cachedRestaurantMenuQueryHandler;
 
-        public RestaurantMenuController(IRestaurantMenuQueryHandler restaurantMenuQueryHandler)
+        public RestaurantMenuController(ICachedRestaurantMenuQueryHandler cachedRestaurantMenuQueryHandler)
         {
-            _restaurantMenuQueryHandler = restaurantMenuQueryHandler;
+            _cachedRestaurantMenuQueryHandler = cachedRestaurantMenuQueryHandler;
         }
 
         [Route("api/RestaurantMenu/{restaurantId}")]
         public IEnumerable<RestaurantMenu> Get(int restaurantId)
         {
-            var result = _restaurantMenuQueryHandler.Execute(new RestaurantMenuQuery
+            var result = _cachedRestaurantMenuQueryHandler.Execute(new CachedRestaurantMenuQuery
             {
                 RestaurantId = restaurantId
             });

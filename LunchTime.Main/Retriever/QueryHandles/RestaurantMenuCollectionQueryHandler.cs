@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LunchTime.Core.Api.Common.Queries;
@@ -7,16 +6,17 @@ using LunchTime.Database.LunchTime;
 using LunchTime.Main.Api.Retriever;
 using LunchTime.Main.Api.Retriever.Entities;
 using LunchTime.Main.Api.Retriever.Queries;
+using LunchTime.Main.Api.Retriever.QueryHandlers;
 using LunchTime.Main.Retriever.DataAccess;
 
-namespace LunchTime.Main.Retriever
+namespace LunchTime.Main.Retriever.QueryHandles
 {
     public class RestaurantMenuCollectionQueryHandler : IRestaurantMenuCollectionQueryHandler
     {
         private readonly IRestaurantReader _restaurantReader;
-        private readonly IRestaurantMenuQueryHandler _menuQueryHandler;
+        private readonly ICachedRestaurantMenuQueryHandler _menuQueryHandler;
 
-        public RestaurantMenuCollectionQueryHandler(IRestaurantMenuQueryHandler menuQueryHandler)
+        public RestaurantMenuCollectionQueryHandler(ICachedRestaurantMenuQueryHandler menuQueryHandler)
         {
             _restaurantReader = new RestaurantReader();
             _menuQueryHandler = menuQueryHandler;
@@ -40,7 +40,7 @@ namespace LunchTime.Main.Retriever
 
         private async Task<RestaurantMenuListItem> GetRestaurantMenu(LearnedRestaurant restaurant)
         {
-            RestaurantMenu menu = await _menuQueryHandler.Execute(new RestaurantMenuQuery
+            RestaurantMenu menu = await _menuQueryHandler.Execute(new CachedRestaurantMenuQuery
             {
                 RestaurantId = restaurant.RestaurantId
             });

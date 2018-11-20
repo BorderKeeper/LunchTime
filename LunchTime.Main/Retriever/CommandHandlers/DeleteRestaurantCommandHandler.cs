@@ -1,10 +1,11 @@
 ﻿using LunchTime.Core.Api.Common.Enums;
 using LunchTime.Main.Api.Retriever;
+using LunchTime.Main.Api.Retriever.CommandHandlers;
 using LunchTime.Main.Api.Retriever.Commands;
 using LunchTime.Main.Cache.DataAccess;
 using LunchTime.Main.Retriever.DataAccess;
 
-namespace LunchTime.Main.Retriever
+namespace LunchTime.Main.Retriever.CommandHandlers
 {
     public class DeleteRestaurantCommandHandler : IDeleteRestaurantCommandHandler
     {

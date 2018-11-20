@@ -22,18 +22,24 @@ namespace LunchTime.Main.Cache.DataAccess
 
                 if (existingCachedMenu != null)
                 {
-                    return existingCachedMenu.RestaurantId;
+                    cachedMenuContext.Entry(existingCachedMenu).CurrentValues.SetValues(new CachedMenu()
+                    {
+                        RestaurantId = restaurantId,
+                        Menu = menu
+                    });
                 }
-
-                var addedMenu = cachedMenuContext.CachedMenus.Add(new CachedMenu
+                else
                 {
-                    RestaurantId = restaurantId,
-                    Menu = menu
-                });
+                    cachedMenuContext.CachedMenus.Add(new CachedMenu
+                    {
+                        RestaurantId = restaurantId,
+                        Menu = menu
+                    });
+                }
 
                 cachedMenuContext.SaveChanges();
 
-                return addedMenu.RestaurantId;
+                return restaurantId;
             }
         }
 

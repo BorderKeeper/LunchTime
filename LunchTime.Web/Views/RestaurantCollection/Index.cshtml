@@ -41,8 +41,10 @@
                 @Html.DisplayFor(modelItem => item.ResultType)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RestaurantId  }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId })
+                @Html.ActionLink("Edit", "Edit", new { restaurantId = item.RestaurantId }) |
+                @Html.ActionLink("Delete", "Delete", 
+                    new { restaurantId = item.RestaurantId }, 
+                    new { onclick = "return confirm('Are you sure you want to delete this item?');" })
             </td>
         </tr>
 }

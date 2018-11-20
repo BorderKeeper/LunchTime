@@ -3,6 +3,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using LunchTime.Core.Windsor;
+using LunchTime.Main;
 
 namespace LunchTime.Services.Installer
 {
@@ -15,6 +16,8 @@ namespace LunchTime.Services.Installer
                 .LifestylePerWebRequest());
 
             new RootInstaller().Install(container, store);
+
+            new MainInstaller().Install(container, store);
         }
     }
 }

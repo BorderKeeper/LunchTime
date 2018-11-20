@@ -3,10 +3,12 @@ using System.Net.Http;
 using System.Web.Http;
 using LunchTime.Core.Api.Common.Enums;
 using LunchTime.Main.Api.Retriever;
+using LunchTime.Main.Api.Retriever.CommandHandlers;
 using LunchTime.Main.Api.Retriever.Commands;
 
 namespace LunchTime.Services.Controllers
 {
+    [Route("api/DeleteRestaurant/{restaurantId}")]
     public class DeleteRestaurantController : ApiController
     {
         private readonly IDeleteRestaurantCommandHandler _deleteRestaurantCommandHandler;
@@ -15,9 +17,9 @@ namespace LunchTime.Services.Controllers
         {
             _deleteRestaurantCommandHandler = deleteRestaurantCommandHandler;
         }
-
-        [Route("api/DeleteRestaurant/{restaurantId}")]
-        public HttpResponseMessage Post(int restaurantId)
+       
+        [HttpDelete]
+        public HttpResponseMessage Delete(int restaurantId)
         {
             var status = _deleteRestaurantCommandHandler.Execute(new DeleteRestaurantCommand
             {

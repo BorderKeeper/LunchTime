@@ -2,8 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
-using LunchTime.Main.Api.Retriever;
+using LunchTime.Main.Api.Retriever.CommandHandlers;
 using LunchTime.Main.Api.Retriever.Commands;
 using LunchTime.Scraper.Api.Scapers.Entities;
 using LunchTime.Services.Models;
@@ -21,17 +22,19 @@ namespace LunchTime.Services.Controllers
             _learnRestaurantCommandHandler = learnRestaurantCommandHandler;
         }
 
-        public HttpResponseMessage Post(RestaurantModel model)
-        {
-            //TODO: Figure out why I spent 2 hours on this piece of shit. WHY DONT YOU DESERALIZE AUTOMATICALLY YOU POS.
-            var modelReally = Request.Content.ReadAsStringAsync().Result;
-            model = JsonConvert.DeserializeObject<RestaurantModel>(modelReally);
+        [HttpPost]
+        public async Task<HttpResponseMessage> Post(RestaurantModel model)
+        {           
+            if (model == default(RestaurantModel))
+            {
+                model = GetFromJsonBody();
+            }
 
             try
             {
                 ValidateModel(model);
 
-                var restaurantId = _learnRestaurantCommandHandler.Execute(new LearnRestaurantCommand
+                var restaurantId = await _learnRestaurantCommandHandler.Execute(new LearnRestaurantCommand
                 {
                     RestaurantName = model.Name,
                     Uri = model.Uri,
@@ -57,6 +60,13 @@ namespace LunchTime.Services.Controllers
             if(model.XPath is null || model.XPath.Length == 0) throw new ValidationException("XPath is missing");
             if(model.ResultType is null || model.XPath.Length == 0) throw new ValidationException("ResultType is missing");
             if(!Enum.TryParse(model.ResultType, out type)) throw new ValidationException("ResultType is invalid");
+        }
+
+        private RestaurantModel GetFromJsonBody()
+        {
+            //TODO: Works in postman, but needs below when called via page
+            var modelReally = Request.Content.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<RestaurantModel>(modelReally);
         }
     }
 }

@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.4.1.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -44,8 +44,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.8.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.8.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.8.10.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.10\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -78,9 +78,25 @@
       <Project>{E372D68D-4EA2-4575-B5DB-53531AE11A13}</Project>
       <Name>LunchTime.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LunchTime.Database\LunchTime.Database.csproj">
+      <Project>{ebf5dcb8-1c8c-4ccf-ab07-5949ca9cd2ff}</Project>
+      <Name>LunchTime.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LunchTime.Main.Api\LunchTime.Main.Api.csproj">
+      <Project>{2c2dbda3-df03-4395-a266-003cccb765d5}</Project>
+      <Name>LunchTime.Main.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LunchTime.Main\LunchTime.Main.csproj">
+      <Project>{348D2FCC-CCFA-4D74-8FDD-41B6107A2C41}</Project>
+      <Name>LunchTime.Main</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LunchTime.Scraper.Api\LunchTime.Scraper.Api.csproj">
       <Project>{4127598C-F98C-46EB-B399-DCA535147FA2}</Project>
       <Name>LunchTime.Scraper.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LunchTime.Scraper\LunchTime.Scraper.csproj">
+      <Project>{b88ab9dc-79ca-4871-87c6-ae23bd953b6d}</Project>
+      <Name>LunchTime.Scraper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

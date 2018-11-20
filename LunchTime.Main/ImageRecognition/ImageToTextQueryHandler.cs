@@ -3,17 +3,18 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using IronOcr;
 using LunchTime.Main.Api.ImageRecognition;
 using LunchTime.Main.Api.ImageRecognition.Queries;
 
 namespace LunchTime.Main.ImageRecognition
 {
-    public class ConvertToTextQueryHandler : IConvertToTextQueryHandler
+    public class ImageToTextQueryHandler : IImageToTextQueryHandler
     {
-        public string Execute(ConvertToTextQuery query)
+        public async Task<string> Execute(ImageToTextQuery query)
         {
-            var localFile = StorePdfLocally(query.Uri);
+            var localFile = await StorePdfLocally(query.Uri);
 
             var ocr = new AdvancedOcr
             {
@@ -37,14 +38,14 @@ namespace LunchTime.Main.ImageRecognition
             return FormatResult(result);
         }
 
-        private string StorePdfLocally(Uri uri)
+        private async Task<string> StorePdfLocally(Uri uri)
         {
             var extension = uri.ToString().Split('.').Last();
             var tempPath = Path.GetTempPath() + Guid.NewGuid() + "." + extension;
 
             using (var webClient = new WebClient())
             {
-                webClient.DownloadFile(uri, tempPath);
+                await webClient.DownloadFileTaskAsync(uri, tempPath);
             }
 
             return tempPath;

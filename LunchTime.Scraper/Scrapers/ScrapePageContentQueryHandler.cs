@@ -14,7 +14,7 @@ namespace LunchTime.Scraper.Scrapers
 {
     public class ScrapePageContentQueryHandler : IScrapePageContentQueryHandler
     {
-        private static readonly List<Extensions> _validExtensions =
+        private static readonly List<Extensions> ValidExtensions =
             new List<Extensions> {Extensions.Jpeg, Extensions.Jpg, Extensions.Pdf, Extensions.Png};
 
         private readonly IWebsiteContentQueryHandler _websiteContentQueryHandler;
@@ -38,10 +38,10 @@ namespace LunchTime.Scraper.Scrapers
                 return ExtractHtmlMenu(query, scrapedNodes);
             }
 
-            return ExtractImageMenu(query, scrapedNodes);
+            return ExtractLink(query, scrapedNodes);
         }
 
-        private ScrapeResult ExtractImageMenu(ScrapePageContentQuery query, IEnumerable<HtmlNode> scrapedNodes)
+        private ScrapeResult ExtractLink(ScrapePageContentQuery query, IEnumerable<HtmlNode> scrapedNodes)
         {
             var node = scrapedNodes.First();
 
@@ -49,7 +49,7 @@ namespace LunchTime.Scraper.Scrapers
             {
                 var attributeExtension = attribute.Value.Split('.').Last();
 
-                if (_validExtensions.Any(extension => extension.ToString().EqualsIgnoreCase(attributeExtension)))
+                if (ValidExtensions.Any(extension => extension.ToString().EqualsIgnoreCase(attributeExtension)))
                 {
                     return new ScrapeResult { Result = attribute.Value, ResultyType = query.ScrapeResultType };
                 }

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using LunchTime.Database.LunchTime;
-using LunchTime.Main.Api.Retriever;
 using LunchTime.Main.Api.Retriever.Queries;
+using LunchTime.Main.Api.Retriever.QueryHandlers;
 using LunchTime.Main.Retriever.DataAccess;
 
-namespace LunchTime.Main.Retriever
+namespace LunchTime.Main.Retriever.QueryHandles
 {
     public class LearnedRestaurantQueryHandler : ILearnedRestaurantQueryHandler
     {

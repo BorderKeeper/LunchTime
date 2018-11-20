@@ -47,24 +47,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\Commands\CacheNewRestaurantCommand.cs" />
+    <Compile Include="Cache\ICacheNewRestaurantCommandHandler.cs" />
     <Compile Include="Cache\Commands\RestaurantMenuCacheCommand.cs" />
     <Compile Include="Cache\IRestaurantMenuCacheCommandHandler.cs" />
     <Compile Include="Cache\IRestaurantMenuCacheQueryHandler.cs" />
     <Compile Include="Cache\Queries\RestaurantMenuCacheQuery.cs" />
-    <Compile Include="ImageRecognition\IConvertToTextQueryHandler.cs" />
-    <Compile Include="ImageRecognition\Queries\ConvertToTextQuery.cs" />
+    <Compile Include="ImageRecognition\IImageToTextQueryHandler.cs" />
+    <Compile Include="ImageRecognition\Queries\ImageToTextQuery.cs" />
+    <Compile Include="MenuConverters\IMenuConverter.cs" />
+    <Compile Include="MenuConverters\IMenuConverterFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retriever\CommandHandlers\IUpdateRestaurantCommandHandler.cs" />
     <Compile Include="Retriever\Commands\DeleteRestaurantCommand.cs" />
     <Compile Include="Retriever\Commands\LearnRestaurantCommand.cs" />
+    <Compile Include="Retriever\Commands\UpdateRestaurantCommand.cs" />
     <Compile Include="Retriever\Entities\RestaurantMenu.cs" />
     <Compile Include="Retriever\Entities\RestaurantMenuListItem.cs" />
-    <Compile Include="Retriever\IDeleteRestaurantCommandHandler.cs" />
-    <Compile Include="Retriever\ILearnedRestaurantCollectionQueryHandler.cs" />
-    <Compile Include="Retriever\ILearnedRestaurantQueryHandler.cs" />
-    <Compile Include="Retriever\ILearnRestaurantCommandHandler.cs" />
-    <Compile Include="Retriever\IRestaurantMenuCollectionQueryHandler.cs" />
-    <Compile Include="Retriever\IRestaurantMenuQueryHandler.cs" />
+    <Compile Include="Retriever\CommandHandlers\IDeleteRestaurantCommandHandler.cs" />
+    <Compile Include="Retriever\QueryHandlers\ILearnedRestaurantCollectionQueryHandler.cs" />
+    <Compile Include="Retriever\QueryHandlers\ILearnedRestaurantQueryHandler.cs" />
+    <Compile Include="Retriever\CommandHandlers\ILearnRestaurantCommandHandler.cs" />
+    <Compile Include="Retriever\QueryHandlers\IRestaurantMenuCollectionQueryHandler.cs" />
+    <Compile Include="Retriever\QueryHandlers\ICachedRestaurantMenuQueryHandler.cs" />
+    <Compile Include="Retriever\QueryHandlers\IRestaurantMenuQueryHandler.cs" />
     <Compile Include="Retriever\Queries\LearnedRestaurantQuery.cs" />
+    <Compile Include="Retriever\Queries\CachedRestaurantMenuQuery.cs" />
     <Compile Include="Retriever\Queries\RestaurantMenuQuery.cs" />
   </ItemGroup>
   <ItemGroup>
