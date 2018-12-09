@@ -16,5 +16,5 @@ Upcoming features:
 Installation:
 - Compile and run LunchTime.Services (These are the services and backend)
 - Configure LunchTime.Web appsettings.json for the correct Url to LunchTime.Services
-- Compile and run LunchTime.Web (This is the actuall website)
+- Compile and run LunchTime.Web (This is the actual website)
 - Feel free to create your own page that utilizes the Services layer
